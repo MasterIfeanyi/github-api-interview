@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import User from './components/User'
 import { Routes, Route, Navigate } from 'react-router-dom'
