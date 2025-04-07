@@ -8,7 +8,7 @@ import { useAuth } from './context/AuthContext'
 
 function App() {
 
-  const { username } = useAuth()
+  const { username, userData } = useAuth()
   
 
   return (

@@ -3,11 +3,13 @@ import axios from 'axios';
 import { FiMapPin, FiLink } from "react-icons/fi"
 import './User.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'
 
 const User = () => {
 
-    const [username, setUsername] = useState("");
-    const [userData, setUserData] = useState(null);
+    const { username, setUsername, userData, setUserData } = useAuth()
+
+
     const [error, setError] = useState("");
 
     const handleSearch = async (e) => {

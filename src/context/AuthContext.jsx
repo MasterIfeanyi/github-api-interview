@@ -10,14 +10,16 @@ export function useAuth() {
 export function AuthProvider({ children }) {
 
     
-  const [username, setUsername] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState("");
+  const [userData, setUserData] = useState(null);
 
   
 
   const value = {
     username,
-    setUsername
+    setUsername,
+    userData,
+    setUserData
   };
 
   return (
