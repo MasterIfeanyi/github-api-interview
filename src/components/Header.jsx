@@ -1,11 +1,19 @@
-import {useState} from 'react'
-import axios from 'axios';
-import { FiMapPin, FiLink } from "react-icons/fi"
+import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'
 import "./Header.css"
+import { Sun, Moon } from "lucide-react"
 
 const Header = () => {
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    useEffect(() => {
+        if (darkMode) {
+          document.body.classList.add("dark", "bg-dark", "text-light")
+        } else {
+          document.body.classList.remove("dark", "bg-dark", "text-light")
+        }
+    }, [darkMode])
 
 
   return (
@@ -29,6 +37,10 @@ const Header = () => {
                             <Link to="repos" className="nav-link">Repos</Link>
                         </li>
                     </ul>
+
+                    <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={() => setDarkMode(!darkMode)}>
+                        {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                    </button>
                 </div>
             </div>
         </nav>
